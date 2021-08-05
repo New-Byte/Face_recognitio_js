@@ -27,7 +27,7 @@ video.addEventListener('play', () => {
     faceapi.draw.drawDetections(canvas, resizedDetections)
     //faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-    if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.8) {
+    if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.9) {
   const canvas = document.createElement('canvas');
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
