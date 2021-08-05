@@ -27,5 +27,19 @@ video.addEventListener('play', () => {
     faceapi.draw.drawDetections(canvas, resizedDetections)
     //faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+    if (resizedDetections.length > 0 && resizedDetections[0].detection.score > 0.8) {
+  const canvas = document.createElement('canvas');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    canvas.getContext('2d').drawImage(video, 0, 0);
+
+    const img = document.createElement("img");
+    img.src = canvas.toDataURL('image/webp');
+
+    document.getElementById('screenshot').appendChild(img)
+    var url = img.src.replace(/^data:image\/[^;]+/, 'data:application/octet-stream');
+    window.open(url);
+    throw new Error("Image downloaded successfully!");
+}
   }, 100)
 })
